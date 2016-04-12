@@ -1,0 +1,12 @@
+{
+    "name": "root/php-ws",
+    "authors": [
+        {
+            "name": "Anderson Juhasc",
+            "email": "anderson.juhasc@gmail.com"
+        }
+    ],
+    "require": {
+        "devristo/phpws": "dev-master"
+    }
+}
