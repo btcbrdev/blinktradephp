@@ -1,5 +1,5 @@
 {
-    "name": "root/php-ws",
+    "name": "btcbrdev/blinktradephp",
     "authors": [
         {
             "name": "Anderson Juhasc",
@@ -7,6 +7,10 @@
         }
     ],
     "require": {
-        "devristo/phpws": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blinktrade\\": "src/"
+        }
     }
 }
