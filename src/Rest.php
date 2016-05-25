@@ -63,7 +63,7 @@ class Rest
 
         $result = curl_exec($ch);
 
-        echo $result;
+        return $result;
     }
 
     public function balance()
@@ -73,7 +73,7 @@ class Rest
             "BalanceReqID" => 1,
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function openOrders($page = 0, $page_size = 100)
@@ -88,7 +88,7 @@ class Rest
             "Filter" => ["has_leaves_qty eq 1"],
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function executedOrders($page = 0, $page_size = 100)
@@ -103,7 +103,7 @@ class Rest
             "Filter" => ["has_cum_qty eq 1"],
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function cancelledOrders($page = 0, $page_size = 100)
@@ -117,7 +117,7 @@ class Rest
             "PageSize" => $page_size,
             "Filter" => ["has_cxl_qty eq 1"],        ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function newOrder($symbol, $side, $orderType, $price, $orderQty)
@@ -136,7 +136,7 @@ class Rest
             "BrokerID" => $broker_id       # 1=SurBitcoin, 3=VBTC, 4=FoxBit, 5=Tests , 8=UrduBit, 9=ChileBit
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function cancelOrder($client_order_id)
@@ -146,7 +146,7 @@ class Rest
             "ClOrdID" => $client_order_id      # Unique identifier for Order as assigned by you
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function newAddress()
@@ -161,7 +161,7 @@ class Rest
             "BrokerID" => $broker_id        # Exchange ID
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function FIATDeposit($value)
@@ -177,7 +177,7 @@ class Rest
             "BrokerID" => $broker_id  # Exchange ID
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function bitcoinWithdrawal($amount, $address)
@@ -195,7 +195,7 @@ class Rest
             ],
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function FIATWithdrawal($method, $currency, $amount, $data = [])
@@ -211,7 +211,7 @@ class Rest
             "Data" => $data,
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 
     public function listWithdrawals($status, $page = 0, $page_size = 100)
@@ -226,6 +226,6 @@ class Rest
             'StatusList' => $status             # example: ['1', '2'], 1-Pending, 2-In Progress, 4-Completed, 8-Cancelled
         ];
 
-        $this->send($array);
+        return $this->send($array);
     }
 }
